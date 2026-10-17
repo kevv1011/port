@@ -1,0 +1,110 @@
+/* Softer light surfaces with explicit contrast for small labels and diagram paths. */
+:root[data-theme='light'] {
+  --bg: #e9edf2;
+  --surface: #f5f7fa;
+  --surface-raised: #dfe5ec;
+  --surface-soft: #e3e9f0;
+  --text: #18212f;
+  --muted: #3e4b5c;
+  --subtle: #49596c;
+  --border: #aab7c7;
+  --hover-border: #64758b;
+  --diagram-line: #738397;
+  --cyan: #006b4d;
+  --violet: #3e4b5c;
+  --amber: #3e4b5c;
+  --cyan-soft: #d7e9e2;
+  --violet-soft: #e0e6ed;
+  --amber-soft: #e0e6ed;
+}
+
+:root[data-theme='light'] :is(.builder-window,.project-card,.case-diagram,.stock-simulator,.contact-panel) {
+  box-shadow: 0 3px 12px #18212f08;
+}
+:root[data-theme='light'] :is(.button-secondary,.social-pill,.skill-pill,.skill-filters button,.stock-stepper button,.instance-toggle,.simulator-mode,.simulator-stepper button,.toggle-track) {
+  border-color: var(--diagram-line);
+}
+:root[data-theme='light'] :is(.connector,.diagram-trunk,.path-line) {
+  background: var(--diagram-line);
+}
+:root[data-theme='light'] .connector { height: 2px; }
+:root[data-theme='light'] :is(.diagram-trunk,.path-line) { width: 2px; }
+:root[data-theme='light'] .network-path { stroke: var(--diagram-line); stroke-width: 2; height: 190px; top: -10px; }
+:root[data-theme='light'] .network-path > path:first-child { stroke-opacity: 1; }
+:root[data-theme='light'] .network-path .path-flow { stroke: var(--cyan); }
+:root[data-theme='light'] .project-preview { background-image: none; }
+:root[data-theme='light'] .map-grid { opacity: .35; }
+:root[data-theme='light'] .topology-node { border-color: var(--diagram-line); }
+:root[data-theme='light'] .topology-node.core { border-color: var(--cyan); background: var(--cyan-soft); }
+
+:root[data-theme='light'] :is(.main-nav a,.nav-contact,.location,.hero-foot > div > span,.mono-label,.availability-pill) {
+  font-size: 12px;
+}
+:root[data-theme='light'] :is(.eyebrow,.project-category,.project-index,.project-problem > span,.tech-tags li,.project-footnote,.subtle-note,.cert-issuer,.certification time,.contact-socials a,.site-footer > p,.site-footer p > span,.back-top) {
+  font-size: 11px;
+}
+:root[data-theme='light'] .builder-code { font-size: 12px; white-space: normal; overflow-wrap: anywhere; }
+:root[data-theme='light'] :is(.window-bar,.code-comment,.window-status,.topology-node small,.floating-note small) { font-size: 11px; }
+:root[data-theme='light'] .topology-node > span { font-size: 12px; }
+:root[data-theme='light'] .window-status { gap: 10px; flex-wrap: wrap; padding-block: 12px; }
+:root[data-theme='light'] .floating-note { font-size: 12px; }
+:root[data-theme='light'] .hero-foot { flex-wrap: wrap; }
+:root[data-theme='light'] .hero-foot > div { flex-wrap: wrap; }
+
+/* Keep the illustrated apps readable instead of shrinking their labels to fit. */
+:root[data-theme='light'] .project-preview { height: auto; min-height: 350px; gap: 14px; }
+:root[data-theme='light'] :is(.preview-caption,.connection-pill,.inventory-stats > div > span,.table-head,.product-row small,.stock-status,.mini-app-footer,.preview-hint,.region > small,.region .region-service,.peering-label,.vpn-pill,.network-bottom,.mono-tag,.mini-label,.server-count small,.instance-row small,.instance-status,.instance-toggle,.server-pipeline,.mini-terminal-bar,.terminal-body > p:nth-child(2),.terminal-result,.terminal-tools) {
+  font-size: 10px;
+}
+:root[data-theme='light'] :is(.mini-brand,.product-row > span:first-child,.instance-row strong,.terminal-body) { font-size: 11px; }
+:root[data-theme='light'] .preview-caption { flex-wrap: wrap; letter-spacing: .03em; }
+:root[data-theme='light'] .preview-caption > span:last-child { opacity: 1; }
+:root[data-theme='light'] .inventory-stats strong > span { font-size: 9px; }
+:root[data-theme='light'] .inventory-app { margin-top: 0; }
+:root[data-theme='light'] .product-row > span:first-child { white-space: normal; min-width: 0; }
+:root[data-theme='light'] .mini-app-footer { line-height: 1.6; }
+:root[data-theme='light'] .network-map { height: 250px; min-height: 250px; }
+:root[data-theme='light'] .network-bottom { flex-wrap: wrap; gap: 8px 12px; }
+:root[data-theme='light'] .terminal-body { white-space: normal; overflow-wrap: anywhere; }
+:root[data-theme='light'] .terminal-tools { flex-wrap: wrap; gap: 8px 12px; }
+:root[data-theme='light'] .instance-row { flex-wrap: wrap; }
+:root[data-theme='light'] .instance-status { margin-left: auto; }
+:root[data-theme='light'] .server-pipeline { flex-wrap: wrap; }
+
+:root[data-theme='light'] :is(.diagram-mode-label,.diagram-switch-label,.diagram-client small,.data-path > span,.persistence-node,.diagram-status,.diagram-caption,.simulator-product div > span,.simulator-state,.simulator-log li,.simulator-note) {
+  font-size: 11px;
+}
+:root[data-theme='light'] .diagram-client { flex-wrap: wrap; }
+:root[data-theme='light'] .diagram-heading { flex-wrap: wrap; }
+:root[data-theme='light'] :is(.data-path > strong,.simulator-mode > span:first-child,.skill-pill > button) { font-size: 12px; }
+:root[data-theme='light'] .data-path:not(.active) { border-color: var(--diagram-line); }
+:root[data-theme='light'] .skill-badges .skill-pill a svg { opacity: 1; }
+
+@media (max-width: 1100px) {
+  :root[data-theme='light'] .hero-foot > .mono-label { max-width: none; }
+}
+@media (max-width: 850px) {
+  :root[data-theme='light'] .project-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  :root[data-theme='light'] .builder-code { font-size: 11px; padding-inline: 15px; }
+  :root[data-theme='light'] :is(.code-comment,.window-bar,.window-status,.topology-node small) { font-size: 10px; }
+  :root[data-theme='light'] .topology-node > span { font-size: 11px; }
+  :root[data-theme='light'] .topology-node { padding-inline: 5px; text-align: center; }
+  :root[data-theme='light'] .hero-topology { padding-inline: 12px; }
+  :root[data-theme='light'] .hero-foot > div { gap: 12px 18px; }
+  :root[data-theme='light'] .main-nav a { font-size: 14px; }
+  :root[data-theme='light'] .project-preview { padding-inline: 12px; }
+  :root[data-theme='light'] .product-tile { display: none; }
+  :root[data-theme='light'] .product-row { column-gap: 5px; }
+  :root[data-theme='light'] .stock-stepper { gap: 3px; }
+  :root[data-theme='light'] .stock-stepper button { min-width: 23px; }
+  :root[data-theme='light'] .inventory-stats strong > span { display: none; }
+  :root[data-theme='light'] .region-paris { left: 2%; }
+  :root[data-theme='light'] .region-virginia { right: 2%; }
+  :root[data-theme='light'] .region .region-service { font-size: 9px; }
+  :root[data-theme='light'] .peering-label { font-size: 9px; }
+  :root[data-theme='light'] .vpn-pill { white-space: normal; width: 100%; justify-content: center; text-align: center; }
+  :root[data-theme='light'] .case-diagram { padding-inline: 12px; }
+  :root[data-theme='light'] .persistence-node { flex-wrap: wrap; text-align: center; }
+}

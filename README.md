@@ -22,6 +22,7 @@ To check the production version, run `npm run build`, then `npm run preview`. Vi
 - `src/styles/index.css`: design tokens, layouts, themes, and responsive styles.
 - `src/styles/previews.css`: custom UI and architecture illustrations.
 - `src/styles/craft.css`: current carbon/emerald visual direction, mechanical interactions, simulator, and toast.
+- `src/styles/light.css`: softer slate light theme, readable labels, stronger diagram paths, and responsive preview layouts. Every rule is scoped to the light theme.
 - `src/hooks/useEmailCopy.js`: shared email copying and feedback timer.
 - `docs/architecture.md`: wireframe, token table, component tree, and content notes.
 
