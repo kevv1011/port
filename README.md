@@ -2,6 +2,8 @@
 
 A React 18 + Vite portfolio focused on projects, engineering outcomes, and clear contact options. Features matte carbon surfaces, a restrained emerald accent, persisted light/dark themes, responsive navigation, interactive project previews, a keyboard-accessible case study with a stock simulator, skill-to-project highlighting, and email copy with a three-second toast.
 
+**[View portfolio](https://kevv1011.github.io/port/)** · [Source code](https://github.com/kevv1011/port)
+
 ## Preview locally
 
 1. Install Node.js 20.19+ (or a current LTS release) if you do not already have it.
@@ -25,15 +27,12 @@ To check the production version, run `npm run build`, then `npm run preview`. Vi
 
 Project metrics and credentials use the owner's supplied information. Previews are illustrative. The case-study offline stock counter persists in localStorage; cloud mode uses simulated API responses and a separate in-memory inventory. Individual certificate verification URLs and the TindahanTrack live app URL are pending; no destinations are fabricated. Add a verified `live` URL to the project data to display its Live app button. Google Fonts load the requested typography, with local system fallbacks if unavailable.
 
-## Deploy to Render after local review
+## Publish with GitHub Pages
 
-No push or deployment is performed automatically.
+The production URL is **https://kevv1011.github.io/port/**. Visitors can explore the portfolio directly without installing anything.
 
-1. Review the site locally and approve the changes before pushing them to the `kevv1011/port` repository.
-2. In Render, choose **New → Static Site** and connect that GitHub repository.
-3. Set the build command to `npm ci && npm run build`.
-4. Set the publish directory to `dist`.
-5. Choose **Create Static Site**. Render builds the app and supplies its public URL.
-6. For a fallback route, add a rewrite from `/*` to `/index.html` if needed.
+In the repository's **Settings → Pages**, select **GitHub Actions** as the source. `.github/workflows/deploy.yml` installs the locked dependencies, builds with Node.js 22, and publishes `dist/` on pushes to `main`. It can also be run manually from **Actions → Deploy portfolio to GitHub Pages → Run workflow**. The workflow's deployment job reports the live URL.
 
-Alternatively, create a Render Blueprint from the repository; `render.yaml` contains these static-site settings. Build output can be hosted by any static host supporting Vite.
+`vite.config.js` sets the `/port/` base path so assets work on this repository's Pages URL. To check the production build locally, run `npm run build` and `npm run preview`, then open the preview URL at `/port/`. Section links use URL fragments, so refreshing a section does not require server route rewrites.
+
+For another host or a custom domain at the domain root, change Vite's base path to `/` before building. The optional `render.yaml` contains Render static-site settings; GitHub Pages is the primary deployment.
