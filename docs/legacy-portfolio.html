@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Justine Kevin M. Reyes, Backend & Full-Stack Developer." />
+    <title>Justine Reyes — Original portfolio reference</title>
+    <style>
+      :root {
+        --bg: #08080a;
+        --surface: rgba(18, 18, 23, 0.72);
+        --surface-strong: #141419;
+        --text: #f2f5f7;
+        --muted: #9ca3af;
+        --dim: #626977;
+        --line: rgba(255, 255, 255, 0.1);
+        --cyan: #60e7f5;
+        --purple: #a68cff;
+        --green: #8de6b0;
+        --mx: 50%;
+        --my: 20%;
+        --radius: 22px;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--text);
+        background:
+          radial-gradient(700px circle at var(--mx) var(--my), rgba(79, 219, 243, 0.07), transparent 42%),
+          radial-gradient(720px circle at 78% 90%, rgba(135, 92, 255, 0.06), transparent 45%),
+          var(--bg);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: "";
+        opacity: 0.32;
+        background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(circle at 50% 20%, black, transparent 78%);
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      ::selection { color: #071013; background: var(--cyan); }
+
+      .shell { width: min(1480px, calc(100% - 48px)); margin: 0 auto; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; min-height: 82px; border-bottom: 1px solid var(--line); }
+      .wordmark, .eyebrow, .label, .project-number, .status, .stack-label { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+      .wordmark { display: flex; align-items: center; gap: 10px; font-size: .75rem; color: var(--muted); }
+      .wordmark i { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 16px var(--green); }
+      .topbar > span { color: var(--dim); font: .72rem "SFMono-Regular", Consolas, monospace; }
+
+      .layout { display: grid; grid-template-columns: minmax(220px, 0.76fr) minmax(480px, 1.7fr) minmax(220px, .78fr); gap: clamp(22px, 3vw, 56px); padding: 42px 0 80px; align-items: start; }
+      .sidebar { position: sticky; top: 28px; }
+      .glass {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.018) 36%, rgba(255,255,255,.04));
+        box-shadow: inset 0 1px rgba(255,255,255,.07), 0 24px 70px rgba(0,0,0,.18);
+        backdrop-filter: blur(18px);
+      }
+      .glass::after {
+        position: absolute; inset: 0; pointer-events: none; content: "";
+        background: radial-gradient(260px circle at var(--card-x, 50%) var(--card-y, 0%), rgba(96,231,245,.11), transparent 52%);
+        opacity: .55;
+      }
+      .identity { padding: 25px; }
+      .avatar { display: grid; width: 72px; height: 72px; margin-bottom: 26px; place-items: center; border: 1px solid rgba(96,231,245,.45); border-radius: 20px; background: linear-gradient(135deg, rgba(96,231,245,.17), rgba(166,140,255,.16)); box-shadow: inset 0 0 22px rgba(96,231,245,.08), 0 0 30px rgba(96,231,245,.08); color: var(--cyan); font: 700 1.4rem "SFMono-Regular", Consolas, monospace; letter-spacing: -.09em; }
+      h1 { margin: 0; font-size: clamp(1.6rem, 2.2vw, 2.15rem); line-height: 1.05; letter-spacing: -.055em; }
+      .role { margin: 10px 0 18px; color: var(--cyan); font-size: .9rem; }
+      .bio { margin: 0; color: var(--muted); font-size: .9rem; }
+      .identity hr, .radar hr { height: 1px; margin: 24px 0; border: 0; background: var(--line); }
+      .contact-link { display: inline-flex; align-items: center; gap: 8px; color: #d9dde3; font-size: .86rem; overflow-wrap: anywhere; }
+      .contact-link:hover { color: var(--cyan); }
+      .socials { display: flex; gap: 10px; margin-top: 19px; }
+      .icon-link { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); transition: color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease); }
+      .icon-link:hover, .icon-link:focus-visible { color: var(--cyan); border-color: rgba(96,231,245,.65); transform: translateY(-2px); }
+      svg { width: 18px; height: 18px; fill: currentColor; }
+
+      .primary-button, .project-link, .badge { position: relative; overflow: hidden; isolation: isolate; cursor: pointer; }
+      .primary-button { display: flex; width: 100%; margin-top: 25px; align-items: center; justify-content: space-between; padding: 13px 14px 13px 16px; border: 1px solid rgba(96,231,245,.55); border-radius: 12px; background: rgba(96,231,245,.09); color: var(--text); transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease); }
+      .primary-button:hover, .primary-button:focus-visible { background: rgba(96,231,245,.15); box-shadow: 0 0 28px rgba(96,231,245,.15); transform: translateY(-2px); }
+      .primary-button span:last-child { color: var(--cyan); font-size: 1.1rem; }
+
+      .feed-header { padding: 11px 0 33px; }
+      .eyebrow { margin: 0 0 15px; color: var(--cyan); font-size: .72rem; }
+      .feed-header h2 { max-width: 720px; margin: 0; font-size: clamp(2.35rem, 5vw, 4.8rem); line-height: .99; letter-spacing: -.068em; }
+      .feed-header h2 em { color: var(--purple); font-style: normal; }
+      .feed-header > p:last-child { max-width: 595px; margin: 20px 0 0; color: var(--muted); font-size: 1.02rem; }
+      .feed { display: grid; gap: 24px; perspective: 1300px; }
+      .project {
+        --card-x: 50%; --card-y: 0%;
+        min-height: 440px;
+        padding: clamp(24px, 4vw, 42px);
+        transform-style: preserve-3d;
+        transition: opacity .75s var(--ease), transform .75s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+      }
+      .project.reveal { opacity: 0; transform: translateY(54px) translateZ(-90px) rotateX(9deg); }
+      .project.reveal.visible { opacity: 1; transform: translateY(0) translateZ(0) rotateX(0); }
+      .project:hover { border-color: rgba(96,231,245,.34); box-shadow: inset 0 1px rgba(255,255,255,.09), 0 32px 90px rgba(0,0,0,.34), 0 0 30px rgba(96,231,245,.06); }
+      .project-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+      .project-number { color: var(--dim); font-size: .71rem; }
+      .status { padding: 5px 8px; border: 1px solid rgba(141,230,176,.24); border-radius: 99px; color: var(--green); background: rgba(141,230,176,.06); font-size: .63rem; }
+      .project-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 156px; gap: 22px; margin-top: 48px; transform: translateZ(24px); }
+      .project h3 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.45rem); letter-spacing: -.055em; line-height: 1.05; }
+      .project-summary { max-width: 500px; margin: 16px 0 21px; color: #c5cbd4; }
+      .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+      .tag { padding: 5px 8px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); background: rgba(0,0,0,.18); font: .68rem "SFMono-Regular", Consolas, monospace; }
+      .system-note { margin-top: 26px; padding: 13px 14px; border-left: 2px solid var(--purple); color: var(--muted); background: rgba(166,140,255,.06); font-size: .82rem; }
+      .system-note strong { display: block; margin-bottom: 3px; color: var(--purple); font: .66rem "SFMono-Regular", Consolas, monospace; letter-spacing: .09em; text-transform: uppercase; }
+      .architecture { position: relative; display: grid; min-height: 164px; place-items: center; border: 1px solid rgba(255,255,255,.08); border-radius: 18px; background: rgba(0,0,0,.2); overflow: hidden; }
+      .architecture::before, .architecture::after { position: absolute; content: ""; border: 1px solid rgba(96,231,245,.36); border-radius: 50%; }
+      .architecture::before { width: 92px; height: 92px; box-shadow: 0 0 20px rgba(96,231,245,.1); }
+      .architecture::after { width: 140px; height: 140px; border-color: rgba(166,140,255,.24); }
+      .architecture i { position: relative; z-index: 1; width: 16px; height: 16px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 25px var(--cyan); }
+      .project:nth-child(2) .architecture::before { width: 112px; height: 65px; border-radius: 12px; transform: rotate(-25deg); }
+      .project:nth-child(2) .architecture::after { width: 60px; height: 60px; box-shadow: 65px -45px 0 -28px var(--purple), -65px 45px 0 -28px var(--cyan); }
+      .project:nth-child(3) .architecture::before { width: 104px; height: 104px; border-style: dashed; animation: orbit 13s linear infinite; }
+      .project:nth-child(3) .architecture::after { width: 52px; height: 52px; border-radius: 11px; }
+      @keyframes orbit { to { transform: rotate(360deg); } }
+      .project-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; margin-top: 30px; transform: translateZ(16px); }
+      .project-link { display: inline-flex; gap: 8px; align-items: center; color: var(--cyan); font-size: .84rem; }
+      .project-link::after { content: "↗"; font-size: 1rem; transition: transform .2s var(--ease); }
+      .project-link:hover::after { transform: translate(2px, -2px); }
+      .project-footer small { color: var(--dim); font: .67rem "SFMono-Regular", Consolas, monospace; }
+
+      .radar { padding: 23px; }
+      .radar h2 { margin: 0; font-size: 1.05rem; letter-spacing: -.03em; }
+      .radar-top { display: flex; align-items: center; justify-content: space-between; }
+      .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 0 rgba(96,231,245,.5); animation: pulse 2.3s infinite; }
+      @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(96,231,245,0); } 100% { box-shadow: 0 0 0 0 rgba(96,231,245,0); } }
+      .radar-visual { position: relative; display: grid; height: 165px; margin: 25px 0; place-items: center; overflow: hidden; border-radius: 15px; background: linear-gradient(135deg, rgba(96,231,245,.08), rgba(166,140,255,.04)); }
+      .radar-visual::before { width: 118px; height: 118px; border: 1px solid rgba(96,231,245,.38); border-radius: 50%; content: ""; box-shadow: 0 0 0 22px rgba(96,231,245,.035), 0 0 0 44px rgba(96,231,245,.025); }
+      .sweep { position: absolute; width: 50%; height: 50%; transform-origin: 100% 100%; left: 0; top: 0; background: conic-gradient(from 90deg at 100% 100%, rgba(96,231,245,.3), transparent 37deg); animation: sweep 5s linear infinite; }
+      .radar-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 12px var(--purple); }
+      .radar-dot.one { transform: translate(31px, -25px); }.radar-dot.two { transform: translate(-34px, 14px); background: var(--cyan); }.radar-dot.three { transform: translate(11px, 42px); }
+      @keyframes sweep { to { transform: rotate(360deg); } }
+      .stack-group + .stack-group { margin-top: 20px; }
+      .stack-label { display: block; margin-bottom: 8px; color: var(--dim); font-size: .63rem; }
+      .badges { display: flex; flex-wrap: wrap; gap: 7px; }
+      .badge { display: inline-flex; align-items: center; padding: 7px 8px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.025); color: #c4cad3; font-size: .72rem; transition: transform .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease); }
+      .badge:hover, .badge:focus-visible, .badge.selected { border-color: rgba(96,231,245,.5); background: rgba(96,231,245,.11); color: var(--cyan); transform: translateY(-2px); }
+      .availability { padding: 23px; margin-top: 18px; }
+      .availability .label { color: var(--green); font-size: .66rem; }
+      .availability p { margin: 9px 0 17px; color: var(--muted); font-size: .85rem; }
+      .text-link { color: var(--cyan); font-size: .84rem; }
+
+      .contact { padding: clamp(28px, 5vw, 50px); margin-top: 4px; text-align: center; }
+      .contact h2 { max-width: 600px; margin: 10px auto 14px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -.06em; }
+      .contact p { max-width: 450px; margin: 0 auto 24px; color: var(--muted); }
+      .contact .primary-button { width: auto; margin: auto; gap: 28px; }
+      footer { display: flex; justify-content: space-between; padding: 0 0 32px; color: var(--dim); font: .67rem "SFMono-Regular", Consolas, monospace; }
+      .ripple { position: absolute; z-index: -1; width: 16px; height: 16px; border-radius: 50%; background: rgba(96,231,245,.5); transform: translate(-50%, -50%) scale(0); animation: ripple .55s ease-out; pointer-events: none; }
+      @keyframes ripple { to { transform: translate(-50%, -50%) scale(16); opacity: 0; } }
+      :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+      @media (max-width: 1050px) { .layout { grid-template-columns: minmax(210px, .7fr) minmax(0, 1.5fr); }.right-column { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }.right-column .sidebar { position: static; }.availability { margin-top: 0; }.radar { height: 100%; }.radar-visual { display: none; } }
+      @media (max-width: 710px) { .shell { width: min(100% - 28px, 580px); }.topbar { min-height: 64px; }.topbar > span { display: none; }.layout { display: block; padding-top: 26px; }.sidebar { position: static; }.right-column { display: block; margin-top: 24px; }.feed { margin-top: 34px; }.feed-header { padding-bottom: 24px; }.project { min-height: 0; }.project-content { grid-template-columns: 1fr; margin-top: 30px; }.architecture { min-height: 126px; }.project-footer { align-items: center; }.project-footer small { display: none; }.availability { margin-top: 18px; } footer { padding-top: 26px; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .project.reveal { opacity: 1; transform: none; } }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="wordmark" href="#top"><i aria-hidden="true"></i> jr / developer portfolio</a>
+        <span>system online · 2026</span>
+      </header>
+
+      <main id="top" class="layout">
+        <aside class="sidebar left-column" aria-label="Developer identity">
+          <section class="glass identity">
+            <div class="avatar" aria-label="Justine Reyes initials">JR</div>
+            <h1>Justine Kevin<br />M. Reyes</h1>
+            <p class="role">Backend &amp; Full-Stack Developer</p>
+            <p class="bio">Specializing in robust backend systems, cloud-native applications, and scalable web solutions. Focused on system design, database optimization, and modern DevOps.</p>
+            <hr />
+            <a class="contact-link" href="mailto:justine.kevin13@gmail.com">↳ justine.kevin13@gmail.com</a>
+            <nav class="socials" aria-label="Social links">
+              <a class="icon-link" href="https://github.com/kevv1011" target="_blank" rel="noreferrer" aria-label="Visit Justine's GitHub profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.66.35-1.11.64-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.81-4.58 5.06.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.79 0 .27.18.59.69.49A10.22 10.22 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" /></svg></a>
+              <a class="icon-link" href="https://github.com/kevv1011/port" target="_blank" rel="noreferrer" aria-label="View portfolio source repository"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z" /></svg></a>
+            </nav>
+            <a class="primary-button" href="#contact"><span>Let's collaborate</span><span aria-hidden="true">↘</span></a>
+          </section>
+        </aside>
+
+        <section class="work" aria-labelledby="work-heading">
+          <header class="feed-header">
+            <p class="eyebrow">Selected systems &amp; builds</p>
+            <h2 id="work-heading">Engineering for the <em>real world.</em></h2>
+            <p>From dependable workflows to distributed cloud infrastructure, I build systems that remain clear, useful, and resilient under pressure.</p>
+          </header>
+          <div class="feed">
+            <article class="glass project reveal" data-project="inventory">
+              <div class="project-top"><span class="project-number">01 / 03</span><span class="status">Deployed</span></div>
+              <div class="project-content"><div><h3>TindahanTrack</h3><p class="project-summary">A full-stack inventory platform designed for everyday operations, including dependable offline workflows when connectivity disappears.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">localStorage</span><span class="tag">GitHub Actions</span></div><p class="system-note"><strong>System note</strong>Offline-first fallback keeps essential inventory work moving during intermittent connectivity.</p></div><div class="architecture" aria-label="Abstract inventory system visual"><i></i></div></div>
+              <div class="project-footer"><a class="project-link tactile" href="https://github.com/kevv1011/TinadahanTrack" target="_blank" rel="noreferrer">View project</a><small>inventory / resilient workflows</small></div>
+            </article>
+            <article class="glass project reveal" data-project="cloud">
+              <div class="project-top"><span class="project-number">02 / 03</span><span class="status">Distributed</span></div>
+              <div class="project-content"><div><h3>HAUPokemon</h3><p class="project-summary">A distributed monster-tracking system connecting multi-region AWS infrastructure with real-time GPS mobile tracking.</p><div class="tags"><span class="tag">AWS VPC</span><span class="tag">VPC Peering</span><span class="tag">GPS</span></div><p class="system-note"><strong>System note</strong>Multi-region networking supports location-aware activity across connected application environments.</p></div><div class="architecture" aria-label="Abstract distributed network visual"><i></i></div></div>
+              <div class="project-footer"><a class="project-link tactile" href="https://github.com/kevv1011/HAUPokemon-Monster-App" target="_blank" rel="noreferrer">View project</a><small>cloud / real-time coordination</small></div>
+            </article>
+            <article class="glass project reveal" data-project="serverless">
+              <div class="project-top"><span class="project-number">03 / 03</span><span class="status">Automated</span></div>
+              <div class="project-content"><div><h3>Serverless EC2 Dashboard</h3><p class="project-summary">An infrastructure-control dashboard that automates cloud instance management through event-driven AWS services.</p><div class="tags"><span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">EC2</span></div><p class="system-note"><strong>System note</strong>Serverless orchestration turns routine instance operations into clear, repeatable actions.</p></div><div class="architecture" aria-label="Abstract serverless dashboard visual"><i></i></div></div>
+              <div class="project-footer"><a class="project-link tactile" href="#contact">Discuss this build</a><small>cloud / event-driven operations</small></div>
+            </article>
+            <section id="contact" class="glass contact"><p class="eyebrow">Open channel</p><h2>Have a system worth building?</h2><p>Let’s turn complex requirements into dependable, scalable software.</p><a class="primary-button tactile" href="mailto:justine.kevin13@gmail.com"><span>Start a conversation</span><span aria-hidden="true">↗</span></a></section>
+          </div>
+        </section>
+
+        <aside class="right-column" aria-label="Technology stack and availability">
+          <section class="sidebar glass radar">
+            <div class="radar-top"><h2>Stack Radar</h2><i class="pulse" aria-label="Active"></i></div>
+            <div class="radar-visual" aria-hidden="true"><i class="sweep"></i><i class="radar-dot one"></i><i class="radar-dot two"></i><i class="radar-dot three"></i></div>
+            <div class="stack-group"><span class="stack-label">Backend &amp; data</span><div class="badges"><a class="badge" href="https://www.python.org/" target="_blank" rel="noreferrer">Python</a><a class="badge" href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer">FastAPI</a><a class="badge" href="https://www.postgresql.org/" target="_blank" rel="noreferrer">PostgreSQL</a><a class="badge" href="https://supabase.com/" target="_blank" rel="noreferrer">Supabase</a><a class="badge" href="https://www.mysql.com/" target="_blank" rel="noreferrer">MySQL</a></div></div>
+            <div class="stack-group"><span class="stack-label">Frontend &amp; mobile</span><div class="badges"><a class="badge" href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noreferrer">JavaScript</a><a class="badge" href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">TypeScript</a><a class="badge" href="https://react.dev/" target="_blank" rel="noreferrer">React</a><a class="badge" href="https://dart.dev/" target="_blank" rel="noreferrer">Dart</a><a class="badge" href="https://capacitorjs.com/" target="_blank" rel="noreferrer">Capacitor</a></div></div>
+            <div class="stack-group"><span class="stack-label">Cloud &amp; delivery</span><div class="badges"><a class="badge" href="https://aws.amazon.com/ec2/" target="_blank" rel="noreferrer">AWS EC2</a><a class="badge" href="https://aws.amazon.com/lambda/" target="_blank" rel="noreferrer">Lambda</a><a class="badge" href="https://aws.amazon.com/api-gateway/" target="_blank" rel="noreferrer">API Gateway</a><a class="badge" href="https://www.docker.com/" target="_blank" rel="noreferrer">Docker</a><a class="badge" href="https://render.com/" target="_blank" rel="noreferrer">Render</a><a class="badge" href="https://git-scm.com/" target="_blank" rel="noreferrer">Git</a></div></div>
+          </section>
+          <section class="sidebar glass availability"><span class="label">● Available for collaboration</span><p>Open to backend, cloud-native, and full-stack product work.</p><a class="text-link tactile" href="mailto:justine.kevin13@gmail.com">Get in touch ↗</a></section>
+        </aside>
+      </main>
+      <footer><span>© 2026 Justine Kevin M. Reyes</span><a href="#top">Back to top ↑</a></footer>
+    </div>
+    <script>
+      (() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const pointerFine = window.matchMedia('(pointer: fine)').matches;
+        let rafId = 0, pointer = { x: innerWidth / 2, y: innerHeight / 5 };
+        if (pointerFine && !reduceMotion) {
+          window.addEventListener('pointermove', event => { pointer = { x: event.clientX, y: event.clientY }; if (!rafId) rafId = requestAnimationFrame(() => { document.documentElement.style.setProperty('--mx', `${pointer.x}px`); document.documentElement.style.setProperty('--my', `${pointer.y}px`); rafId = 0; }); }, { passive: true });
+        }
+        const cards = document.querySelectorAll('.project');
+        if (!reduceMotion && pointerFine) cards.forEach(card => {
+          let frame;
+          card.addEventListener('pointermove', e => { const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { card.style.setProperty('--card-x', `${x * 100}%`); card.style.setProperty('--card-y', `${y * 100}%`); card.style.transform = `perspective(1100px) rotateX(${(0.5 - y) * 7}deg) rotateY(${(x - 0.5) * 7}deg) translateY(-5px)`; }); });
+          card.addEventListener('pointerleave', () => { cancelAnimationFrame(frame); card.style.removeProperty('transform'); card.style.setProperty('--card-x', '50%'); card.style.setProperty('--card-y', '0%'); });
+        });
+        if (!reduceMotion && 'IntersectionObserver' in window) { const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold: .14 }); cards.forEach(card => observer.observe(card)); } else cards.forEach(card => card.classList.add('visible'));
+        document.addEventListener('click', event => { const target = event.target.closest('.tactile, .badge, .primary-button'); if (!target) return; const bounds = target.getBoundingClientRect(), ripple = document.createElement('i'); ripple.className = 'ripple'; ripple.style.left = `${event.clientX - bounds.left}px`; ripple.style.top = `${event.clientY - bounds.top}px`; target.append(ripple); ripple.addEventListener('animationend', () => ripple.remove()); });
+      })();
+    </script>
+  </body>
+</html>

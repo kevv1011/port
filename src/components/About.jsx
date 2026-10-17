@@ -1,0 +1,5 @@
+import Icon from './Icon';
+
+export default function About() {
+  return <section id="about" className="section about-section" aria-labelledby="about-title"><div className="container about-grid"><div><p className="eyebrow"><span>03</span> The person behind the code</p><h2 id="about-title">Curious by nature.<br /><span>Builder by choice.</span></h2><div className="about-signature"><span className="avatar-monogram">JR<span>↗</span></span><div><strong>Justine Kevin M. Reyes</strong><span>Angeles City, Pampanga · GMT+8</span></div></div></div><div className="about-story"><p>I’m Justine Kevin, a developer based in Angeles City who loves figuring out how complex systems tick.</p><p>I specialize in reliable backend APIs, normalized relational databases, and cloud infrastructure that works quietly in the background. Whether I’m wiring up multi-region AWS networks or polishing mobile-first React interfaces, I focus on shipping practical software that stays out of the user’s way.</p><div className="human-note"><Icon name="terminal" size={18} /><span>My favorite part? Making the complicated feel simple.</span></div></div></div></section>;
+}
