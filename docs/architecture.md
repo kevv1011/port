@@ -37,6 +37,8 @@ App
 ├── Hero (builder window illustration)
 ├── Projects
 │   └── ProjectPreview
+│       ├── RunwayPreview (sample wallet and privacy toggle)
+│       ├── EchelonPreview (documented route presets and schematic paths)
 │       ├── InventoryPreview (sample stock and connection mode)
 │       ├── NetworkPreview (AWS architecture)
 │       ├── ServerPreview (illustrative instance toggle)
@@ -54,6 +56,8 @@ Shared content and explicit skill-to-project mappings live in `src/data/portfoli
 
 ## Content boundaries
 
-Project claims, metrics, credential names, and dates come from the owner's supplied brief. The unavailable citation markers in the brief are not rendered as sources. Credential verification URLs and TindahanTrack's live app URL were not supplied, so the UI does not invent verification links or a live destination. Project cards render a Live app action when a verified `live` URL is set in the project data. Interactive previews are labeled simulations; they do not connect to project APIs, AWS, or actual store data. The case-study simulator persists sample offline stock to `jr-inventory-simulator-stock`. It does not synchronize that stock to a real cloud database. Storage and clipboard failures have honest user-facing feedback.
+Project content was checked against the public project READMEs and GitHub profile on 28 October 2026. Runway and Echelon lead the project list. The Runway preview uses sample amounts; its public Pages URL returned 404, so only source is linked. Echelon's no-account demo and Google-test-user live app have separate links and availability copy. TindahanTrack links to its public demo and describes its inventory, checkout, receipts, and sales analytics. Credentials remain owner-supplied with verification URLs pending.
+
+Project cards render actions for verified `demo`, `live`, and `repo` URLs and use explicit skill mappings. Interactive previews are labeled illustrations; they do not connect to project APIs, AWS, or actual store data. The case-study simulator persists sample offline stock to `jr-inventory-simulator-stock` and does not synchronize it to a real cloud database. Storage and clipboard failures have user-facing feedback. `src/styles/recent-projects.css` supplies theme-aware styles for the new previews and wrapping project links.
 
 The original single-file page is preserved at `docs/legacy-portfolio.html` as a reference; it is not part of the production build.

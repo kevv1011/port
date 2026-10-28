@@ -26,7 +26,13 @@ To check the production version, run `npm run build`, then `npm run preview`. Vi
 - `src/hooks/useEmailCopy.js`: shared email copying and feedback timer.
 - `docs/architecture.md`: wireframe, token table, component tree, and content notes.
 
-Project metrics and credentials use the owner's supplied information. Previews are illustrative. The case-study offline stock counter persists in localStorage; cloud mode uses simulated API responses and a separate in-memory inventory. Individual certificate verification URLs and the TindahanTrack live app URL are pending; no destinations are fabricated. Add a verified `live` URL to the project data to display its Live app button. Google Fonts load the requested typography, with local system fallbacks if unavailable.
+Project content was refreshed from the public repositories and profile README on 28 October 2026. Featured work includes Runway, Echelon Cycling, TindahanTrack, HAUPokemon, EC2 Control Center, and the SQL/shell collection.
+
+- Runway is a work-in-progress local wallet for web and Android, with a native widget. Its source is linked; a working public web demo was not available when checked.
+- Echelon includes a no-account browser demo and a separate live app. Google sign-in for the live app currently requires an OAuth test user; mapped route comparison is not available in the hosted demo.
+- TindahanTrack now covers inventory, Quick Cart checkout, receipts, and sales analytics, with a verified browser demo link.
+
+Previews are illustrative: Runway uses sample amounts and a privacy toggle; Echelon switches between documented route presets using schematic paths. The case-study stock counter persists sample offline data in localStorage; cloud mode uses simulated API responses and a separate in-memory inventory. Credentials remain owner-supplied and individual verification URLs are pending. Add verified `demo` or `live` URLs to project data to display the corresponding buttons. Google Fonts have local system fallbacks.
 
 ## Publish with GitHub Pages
 
