@@ -108,6 +108,8 @@ export const skillGroups = [
 
 // Credential titles and dates supplied by the owner. Add individual credential URLs when available.
 export const certifications = [
+  { title: 'Full Stack Web Development', issuer: 'Holy Angel University · School of Computing', date: '2026', color: 'amber', image: 'certificates/hau-full-stack-web-development-2026.png', course: 'Application and System Integration', instructor: 'Tjakoen Stolk' },
+  { title: 'Builds Full-Stack JavaScript and', issuer: 'Holy Angel University · School of Computing', date: '2026', color: 'amber', image: 'certificates/hau-full-stack-javascript-2026.png', course: 'Application and System Integration', instructor: 'Tjakoen Stolk' },
   { title: 'CCNA: Introduction to Networks', issuer: 'Cisco', date: 'Apr 2026', color: 'cyan' },
   { title: 'AWS Academy Graduate: Cloud Foundations', issuer: 'AWS', date: 'Mar 2026', color: 'amber' },
   { title: 'Data Analytics Essentials', issuer: 'Cisco', date: 'Mar 2026', color: 'cyan' },

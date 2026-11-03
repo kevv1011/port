@@ -43,3 +43,12 @@ In the repository's **Settings → Pages**, select **GitHub Actions** as the sou
 `vite.config.js` sets the `/port/` base path so assets work on this repository's Pages URL. To check the production build locally, run `npm run build` and `npm run preview`, then open the preview URL at `/port/`. Section links use URL fragments, so refreshing a section does not require server route rewrites.
 
 For another host or a custom domain at the domain root, change Vite's base path to `/` before building. The optional `render.yaml` contains Render static-site settings; GitHub Pages is the primary deployment.
+
+## Academic awards
+
+Added two 2026 Application and System Integration awards from Holy Angel University School of Computing, issued by instructor Tjakoen Stolk:
+
+- [Full Stack Web Development](public/certificates/hau-full-stack-web-development-2026.png)
+- [Builds Full-Stack JavaScript and](public/certificates/hau-full-stack-javascript-2026.png)
+
+The second title is transcribed exactly as shown on the supplied award. Both originals are accessible from the portfolio credentials section. These are academic awards; external verification URLs were not supplied.
